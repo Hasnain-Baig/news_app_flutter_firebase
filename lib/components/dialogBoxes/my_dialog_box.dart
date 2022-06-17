@@ -29,14 +29,15 @@ class MyDialogBox extends StatelessWidget {
           margin: EdgeInsets.only(right: 20),
           child: ElevatedButton(
             onPressed: () {
-              // if(){
-              Get.back();
-              BottomNavbarController _b = Get.put(BottomNavbarController());
-              _b.checkUserConnection();
-
-              // }
+              if (title != "Success") {
+                Get.back();
+                BottomNavbarController _b = Get.put(BottomNavbarController());
+                _b.checkUserConnection();
+              } else {
+                Get.back();
+              }
             },
-            child: Text("Refresh"),
+            child: title != "Success" ? Text("Refresh") : Text("Ok"),
           ),
         )
       ],
