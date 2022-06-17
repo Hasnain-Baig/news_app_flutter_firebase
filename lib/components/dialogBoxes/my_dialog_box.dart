@@ -5,7 +5,10 @@ import 'package:news_app_flutter_hackathon/controllers/bottom_navbar_controller.
 class MyDialogBox extends StatelessWidget {
   String title;
   Object value;
-  MyDialogBox(this.title, this.value);
+  MyDialogBox(
+    this.title,
+    this.value,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +32,9 @@ class MyDialogBox extends StatelessWidget {
           margin: EdgeInsets.only(right: 20),
           child: ElevatedButton(
             onPressed: () {
-              if (title != "Success") {
-                Get.back();
-                BottomNavbarController _b = Get.put(BottomNavbarController());
-                _b.checkUserConnection();
-              } else {
-                Get.back();
-              }
+              Get.back();
             },
-            child: title != "Success" ? Text("Refresh") : Text("Ok"),
+            child: Text("Ok"),
           ),
         )
       ],
