@@ -75,12 +75,13 @@ class LoginController extends GetxController {
 
         Object e = "Logged In Successfully";
 
-        Get.to(MyBottomNavBar());
+        Get.to(WillPopScope(
+            onWillPop: () async => false, child: MyBottomNavBar()));
       } catch (e) {
         _isLoad = false;
         update();
         // print("Error ${e}");
-        Object e = "Internet Connection Error!";
+        // Object e = "Internet Connection Error!";
         showDialog(
             context: context,
             builder: (BuildContext context) {

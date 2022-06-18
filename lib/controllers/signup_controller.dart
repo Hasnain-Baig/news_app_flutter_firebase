@@ -143,7 +143,7 @@ class SignupController extends GetxController {
         } catch (e) {
           _isLoad = false;
           update();
-          Object e = "Internet Connection Error!";
+          // Object e = "Internet Connection Error!";
           showDialog(
               context: context,
               builder: (BuildContext context) {
