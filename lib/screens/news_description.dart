@@ -7,7 +7,6 @@ import '../controllers/favourite_controller.dart';
 class NewsDescription extends StatelessWidget {
   Map newsObj;
   NewsDescription(this.newsObj);
-  HomeController _homeController = Get.put(HomeController());
   FavouriteController _favController = Get.put(FavouriteController());
 
   @override
@@ -120,7 +119,7 @@ class NewsDescription extends StatelessWidget {
                                   ? Text(
                                       "Published at\n${newsObj['publishedAt']}}")
                                   : Text("No Date Given"),
-                              GetBuilder<FavController>(builder: (_) {
+                              GetBuilder<FavouriteController>(builder: (_) {
                                 return Container(
                                   decoration: BoxDecoration(
                                       color: Theme.of(context)
