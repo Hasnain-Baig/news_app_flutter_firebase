@@ -143,13 +143,16 @@ class SignupController extends GetxController {
         } catch (e) {
           _isLoad = false;
           update();
-          // Object e = "Internet Connection Error!";
-          showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return MyDialogBox("Error", e);
-              });
-        }
+               int errIndex = e.toString().indexOf(']');
+        String error =
+            e.toString().substring((errIndex + 1), e.toString().length - 1);
+
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return MyDialogBox("Error", error);
+            });
+ }
       } else {
         Object e = "Password and Confirm Password are not matched";
         showDialog(

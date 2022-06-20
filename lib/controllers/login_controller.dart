@@ -80,12 +80,14 @@ class LoginController extends GetxController {
       } catch (e) {
         _isLoad = false;
         update();
-        // print("Error ${e}");
-        // Object e = "Internet Connection Error!";
+        int errIndex = e.toString().indexOf(']');
+        String error =
+            e.toString().substring((errIndex + 1), e.toString().length - 1);
+
         showDialog(
             context: context,
             builder: (BuildContext context) {
-              return MyDialogBox("Error", e);
+              return MyDialogBox("Error", error);
             });
       }
     } else {

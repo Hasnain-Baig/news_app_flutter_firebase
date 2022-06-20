@@ -120,7 +120,7 @@ class NewsDescription extends StatelessWidget {
                                   ? Text(
                                       "Published at\n${newsObj['publishedAt']}}")
                                   : Text("No Date Given"),
-                              GetBuilder<HomeController>(builder: (_) {
+                              GetBuilder<FavController>(builder: (_) {
                                 return Container(
                                   decoration: BoxDecoration(
                                       color: Theme.of(context)
