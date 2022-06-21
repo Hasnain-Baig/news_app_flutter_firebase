@@ -51,4 +51,13 @@ class SearchController extends GetxController {
     _searchResults = searchQuery();
     update();
   }
+
+  refreshData() {
+    if (_searchQueryController.text != "") {
+      _searchResults = searchQuery();
+    } else {
+      _searchResults = getAllNews();
+    }
+    update();
+  }
 }

@@ -18,7 +18,7 @@ class CustomTheme with ChangeNotifier {
     // );
     return ThemeData(
       colorScheme: ColorScheme(
-        primary: Colors.green.withBlue(5),
+        primary: Color.fromARGB(255, 66, 184, 70).withBlue(5),
         onPrimary: Colors.white,
         secondary: Colors.white,
         onSecondary: Colors.black87,
@@ -38,7 +38,7 @@ class CustomTheme with ChangeNotifier {
   static get darkTheme {
     return ThemeData(
       colorScheme: ColorScheme(
-        primary: Colors.green.withBlue(10),
+        primary: Color.fromARGB(255, 31, 129, 34),
         onPrimary: Colors.white,
         secondary: Colors.black87,
         onSecondary: Colors.white,

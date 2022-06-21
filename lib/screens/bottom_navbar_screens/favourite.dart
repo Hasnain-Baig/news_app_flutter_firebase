@@ -23,7 +23,7 @@ class Favourite extends StatelessWidget {
     return GetBuilder<LoginController>(builder: (_) {
       return Scaffold(
           appBar: AppBar(
-            leading: Icon(Icons.menu),
+            automaticallyImplyLeading: false,
             title: Text("Favourites"),
             backgroundColor: Theme.of(context).colorScheme.primary,
             actions: [MySwitch(), LoginOrLogoutButton()],

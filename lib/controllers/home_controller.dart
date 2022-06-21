@@ -39,6 +39,11 @@ class TopStoriesController extends GetxController {
       return [];
     }
   }
+
+  refreshData() {
+    _topStories = getTopStoriesData();
+    update();
+  }
 }
 
 class HeadlinesController extends GetxController {
@@ -60,6 +65,11 @@ class HeadlinesController extends GetxController {
     } catch (e) {
       return [];
     }
+  }
+
+  refreshData() {
+    _headlines = getHeadlinesData();
+    update();
   }
 }
 
@@ -84,6 +94,11 @@ class SportsNewsController extends GetxController {
       return [];
     }
   }
+
+  refreshData() {
+    _sportsNews = getSportsNewsData();
+    update();
+  }
 }
 
 class BusinessNewsController extends GetxController {
@@ -107,5 +122,10 @@ class BusinessNewsController extends GetxController {
       print("Error============> ${e}");
       return [];
     }
+  }
+
+  refreshData() {
+    _businessNews = getBusinessNewsData();
+    update();
   }
 }

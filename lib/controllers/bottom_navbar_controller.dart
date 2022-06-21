@@ -11,6 +11,7 @@ import 'package:news_app_flutter_hackathon/screens/bottom_navbar_screens/profile
 import '../components/dialogBoxes/my_dialog_box.dart';
 import '../screens/bottom_navbar_screens/search.dart';
 import 'home_controller.dart';
+import 'search_controller.dart';
 
 class BottomNavbarController extends GetxController {
   int _currentIndex = 0;
@@ -21,18 +22,37 @@ class BottomNavbarController extends GetxController {
     checkUserConnection();
   }
 
+  SearchController _searchController = Get.put(SearchController());
+  BusinessNewsController _businessNewsController =
+      Get.put(BusinessNewsController());
+  TopStoriesController _topStoriesController = Get.put(TopStoriesController());
+  SportsNewsController _sportsNewsController = Get.put(SportsNewsController());
+  HeadlinesController _headlinesController = Get.put(HeadlinesController());
+
   Widget _currentScreen = Home();
   Widget get currentScreen => _currentScreen;
 
   bool _activeCon = true;
   bool get activeCon => _activeCon;
 
+  bool _isloading = false;
+  bool get isloading => _isloading;
   checkUserConnection() async {
     try {
+      _isloading = true;
+      update();
       await InternetAddress.lookup('google.com');
+      _isloading = false;
+      update();
       _activeCon = true;
+      _topStoriesController.refreshData();
+      _headlinesController.refreshData();
+      _businessNewsController.refreshData();
+      _sportsNewsController.refreshData();
+      _searchController.refreshData();
       update();
     } catch (_) {
+      _isloading = false;
       _activeCon = false;
       update();
     }
@@ -53,6 +73,7 @@ class BottomNavbarController extends GetxController {
       case 3:
         _currentScreen = Profile();
     }
+    checkUserConnection();
     update();
   }
 

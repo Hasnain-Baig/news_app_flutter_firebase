@@ -15,7 +15,7 @@ class Profile extends StatelessWidget {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.primary,
-          leading: Icon(Icons.menu),
+          automaticallyImplyLeading: false,
           title: Text("Profile"),
           actions: [MySwitch(), LoginOrLogoutButton()],
         ),

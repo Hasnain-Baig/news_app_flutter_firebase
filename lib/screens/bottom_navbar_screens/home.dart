@@ -21,7 +21,7 @@ class Home extends StatelessWidget {
       child: GetBuilder<LoginController>(builder: (_) {
         return Scaffold(
             appBar: AppBar(
-              leading: Icon(Icons.menu),
+              automaticallyImplyLeading: false,
               title: Text("Home"),
               actions: [MySwitch(), LoginOrLogoutButton()],
               backgroundColor: Theme.of(context).colorScheme.primary,
